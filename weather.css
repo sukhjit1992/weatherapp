@@ -1,0 +1,95 @@
+body{
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgs{
+    width:100px;
+    height:100px;
+    margin-left:250px;
+    margin-top:20px;
+    
+}
+.card{
+    border:1px solid black;
+    width:600px;
+    height:700px;
+    border-radius: 20px;
+    background-color: black;
+    
+}
+.search{
+    height:50px;
+    display: flex;
+    justify-content:center;
+    margin-top:40px;
+    border-radius: 50px;
+
+}
+.searchbar{
+    border-radius: 40px;
+    padding-left: 20px;
+}
+.btn{
+    border-radius: 50px;
+}
+button{
+    margin-left: 20px;
+}
+.heading{
+    display: flex;
+    justify-content:center;
+  
+    font-size:50px;
+    color:red;
+    margin-top: 30px;
+}
+.rain{
+    display: flex;
+    justify-content:center;
+    color:red;
+    margin-top: 20px;
+    font-size: 30px;
+}
+.temp{
+    display: flex;
+    justify-content:center;
+    margin-top:20px; 
+    font-size:50px;
+    color:red;
+   
+}
+.box{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-top:20px;
+
+}
+.wind{
+    margin-top:20px;
+    font-size:30px;
+    color:red;
+    margin-top: 30px;
+    margin-left:20px;
+
+}
+.humidity{
+    margin-top:20px;
+    font-size:30px;
+    color:red;
+    margin-top: 30px;
+    margin-right: 20px;
+}
+.wingimg{
+    width: 100px;
+    height:50px;
+    background-color:black ;
+}
+.hum{
+    width: 100px;
+    height:70px;
+    background-color:black ;
+}

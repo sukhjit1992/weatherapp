@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sukh Weather</title>
+   
+        <link href="weather.css" rel = "stylesheet">
+   
+
+</head>
+<body>
+    <div class="card">
+        <div class = "search">
+            <input type="text" class = 'searchbar' placeholder="enter city name" >
+            <button class="btn">search</button>
+        </div>
+        <h3 class = "heading"></h3>
+        <h4 class = "rain"> </h4>
+        <div>
+        <div class="temp"></div>
+        <img  class = imgs src="cloud.jpg" alt="">
+        </div>
+        <div class="box">
+        <div class="wind">
+            
+        </div>
+        <div class="humidity"></div>
+         </div>
+    </div>
+    <script>
+
+const weatherDetails = (city)=>{
+   
+    
+    const apiKey = 'bed942bc005fd04b034094d35f95170c';
+        //  const city ='London'
+            
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+  .then(res => res.json()) 
+  .then(data => {console.log(data)
+  document.querySelector(".heading").innerHTML= data.name
+
+    // document.querySelector(".rain").innerHTML= `Chances of rain: ${data.rain? data.rain["1 hour"] : 0}%`
+    document.querySelector(".temp").innerHTML =  `Temp <br> ${Math.round(data.main.temp -273.15)}` + "°C"
+    document.querySelector(".wind").innerHTML= `Wind <br> ${Math.round(data.wind.speed * 3.6)}` + "km/h" + " " + '<img class=wingimg src="hava.gif">'
+    document.querySelector(".humidity").innerHTML= `Humidity <br> ${data.main.humidity} `+ '%' + "" + " " + '<img class = "hum" src="humidity.gif">'
+    
+    const img = document.querySelector(".imgs")
+    if(data.weather[0].main == 'Clouds' && data.main.temp <= '7°C'){
+        img.src = "clouds.jpg"} 
+    else if(data.weather[0].main == 'Drizzle' ){
+        img.src  = "driggle.webp"}
+    else if(data.weather[0].main == 'Rain'){
+        img.src  = "rain.webp"}
+    else if(data.weather[0].main == 'Mist'){
+        img.src  = "mist.png"} 
+    else if(data.weather[0].main == 'Clear' ){
+        img.src  = "sun.webp"} 
+    })
+    
+}
+  
+  const button = document.querySelector('button')
+  const input = document.querySelector("input")
+  button.addEventListener('click', (event)=>{
+    event.preventDefault()
+   const city = input.value
+    weatherDetails(city)
+    
+    
+  })
+  
+    </script>
+</body>
+</html>
